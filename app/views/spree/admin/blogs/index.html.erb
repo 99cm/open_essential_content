@@ -1,28 +1,28 @@
 <% content_for :page_title do %>
-  <%= Spree.t('essential_content.admin.blog_listing') %>
+  <%= t('spree_essential_content.admin.blog_listing') %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= button_link_to Spree.t('essential_content.admin.blog_new'), new_admin_blog_url, class: "btn-success", icon: 'add', id: 'admin_new_blog' %>
+  <%= button_link_to t('spree_essential_content.admin.blog_new'), new_admin_blog_url, class: "btn-success", icon: 'add', id: 'admin_new_blog' %>
 <% end if can? :create, Spree::Blog %>
 
 <%= paginate @collection %>
 
 <% if @collection.any? %>
-  <table class="table">
+  <table class='table'>
     <thead>
       <tr>
-        <th><%= sort_link @search, :name, Spree.t("essential_content.blog.name") %></th>
-        <th><%= sort_link @search, :live, Spree.t("essential_content.blog.permalink") %></th>
-        <th data-hook="admin_blogs_index_header_actions" class="actions"></th>
+        <th><%= sort_link @search, :name, t('spree_essential_content.blog.name') %></th>
+        <th><%= sort_link @search, :live, t('spree_essential_content.blog.permalink') %></th>
+        <th data-hook='admin_blogs_index_header_actions' class='actions'></th>
       </tr>
     </thead>
     <tbody>
       <%- @collection.each do |blog|%>
-        <tr id="<%= dom_id blog %>">
+        <tr id='<%= dom_id blog %>'>
           <td><%= blog.name %></td>
           <td><%= blog.permalink %></td>
-          <td class="actions" data-hook="admin_posts_index_row_actions">
+          <td class='actions' data-hook='admin_posts_index_row_actions'>
             <%= link_to_edit blog, no_text: true, class: 'edit' %> &nbsp;
             <%= link_to_delete blog, no_text: true %>
           </td>
