@@ -1,11 +1,11 @@
 class Spree::PageImage < Spree::Asset
 
   has_attached_file :attachment,
-    :styles => Proc.new{ |clip| clip.instance.attachment_sizes },
-    :url => '/spree/pages/:id/:style/:basename.:extension',
-    :path => ':rails_root/public/spree/pages/:id/:style/:basename.:extension'
+    styles: Proc.new{ |clip| clip.instance.attachment_sizes },
+    url: '/spree/pages/:id/:style/:basename.:extension',
+    path: ':rails_root/public/spree/pages/:id/:style/:basename.:extension'
 
-  validates_attachment_content_type :attachment, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  validates_attachment_content_type :attachment, content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
   validates :attachment, attachment_presence: true
 
   def image_content?
