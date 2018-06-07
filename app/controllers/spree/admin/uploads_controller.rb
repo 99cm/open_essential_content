@@ -10,7 +10,7 @@ module Spree
         def collection
           return @collection if @collection.present?
           params[:q] ||= {}
-          params[:q][:s] ||= "attachment_updated_at desc"
+          params[:q][:s] ||= 'attachment_updated_at desc'
           @search = Spree::Upload.search(params[:q])
           @collection = @search.result.page(params[:page]).per(Spree::Config[:admin_orders_per_page])
         end
