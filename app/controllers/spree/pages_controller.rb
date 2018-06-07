@@ -1,5 +1,5 @@
 module Spree
-  class Spree::PagesController < Spree::StoreController
+  class PagesController < StoreController
 
     helper 'spree/blogs/posts'
     helper 'spree/products'
