@@ -1,11 +1,11 @@
 <%= form.field_container :name, class: ['form-group'] do %>
-  <%= form.label :name, Spree.t("essential_content.blog.name") %><br />
-  <%= form.text_field :name, class: "form-control" %>
+  <%= form.label :name, t('spree_essential_content.blog.name') %><br />
+  <%= form.text_field :name, class: 'form-control' %>
   <%= error_message_on :blog, :name %>
 <% end %>
 
 <%= form.field_container :permalink, class: ['form-group'] do %>
-  <%= form.label :permalink, Spree.t("essential_content.blog.permalink") %><br />
-  <%= form.text_field :permalink, class: "form-control" %>
+  <%= form.label :permalink, t('spree_essential_content.blog.permalink') %><br />
+  <%= form.text_field :permalink, class: 'form-control' %>
   <%= error_message_on :blog, :permalink %>
 <% end %>
