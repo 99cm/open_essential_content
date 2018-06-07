@@ -21,7 +21,7 @@ module Spree
 
         def collection
           params[:q] ||= {}
-          params[:q][:s] ||= "position asc"
+          params[:q][:s] ||= 'position asc'
           @search = Spree::Page.search(params[:q])
           @collection = @search.result.page(params[:page]).per(Spree::Config[:admin_orders_per_page])
         end
