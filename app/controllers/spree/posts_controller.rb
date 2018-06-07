@@ -1,9 +1,8 @@
 module Spree
   class PostsController < StoreController
-    rescue_from ActiveRecord::RecordNotFound, with: :render_404
 
     helper 'spree/blogs/posts'
-    helper "spree/products"
+    helper 'spree/products'
 
     before_action :get_blog
     before_action :get_sidebar, only: [:index, :search, :show]
@@ -35,8 +34,8 @@ module Spree
             stop = start + 1.day
           end
         end
-        scope = scope.where("posted_at >= ? AND posted_at <= ?", start, stop)
-        @title = "#{@title} #{params[:year]}"
+        scope = scope.where('posted_at >= ? AND posted_at <= ?', start, stop)
+        @title = '#{@title} #{params[:year]}'
       end
       @posts = scope.page(params[:page]).per(Spree::Post.per_page)
     end
@@ -45,8 +44,8 @@ module Spree
       query = params[:query].gsub(/%46/, '.')
       @posts = default_scope.web.tagged_with(query).page(params[:page]).per(Spree::Post.per_page)
       @breadcrumbs = [
-        [@blog.name, "/#{@blog.permalink}"],
-        ["Tags - #{query}", "#{request.protocol}#{request.host_with_port}#{request.fullpath}"]
+        [@blog.name, '/#{@blog.permalink}'],
+        ['Tags - #{query}', '#{request.protocol}#{request.host_with_port}#{request.fullpath}']
       ]
       @title = "#{@blog.name} tagged with '#{query}'"
       get_tags
@@ -57,9 +56,9 @@ module Spree
       @post = default_scope.web.includes(:tags, :images, :products).find_by_path(params[:id]) rescue nil
       if !@post.nil?
         @breadcrumbs = [
-          [@blog.name, "/#{@blog.permalink}"],
-          [@post.posted_at.year, "/#{@blog.permalink}/#{@post.posted_at.year}"],
-          [@post.posted_at.strftime("%B"), "/#{@blog.permalink}/#{@post.posted_at.year}/#{@post.posted_at.month}"],
+          [@blog.name, '/#{@blog.permalink}'],
+          [@post.posted_at.year, '/#{@blog.permalink}/#{@post.posted_at.year}'],
+          [@post.posted_at.strftime("%B"), '/#{@blog.permalink}/#{@post.posted_at.year}/#{@post.posted_at.month}'],
           [@post.title, spree.full_post_path(@blog, @post.year, @post.month, @post.day, @post.to_param)]
         ]
       else
