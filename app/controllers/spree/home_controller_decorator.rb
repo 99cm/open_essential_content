@@ -7,13 +7,13 @@ Spree::HomeController.class_eval do
     @searcher = build_searcher(params.merge(include_images: true))
     @products = @searcher.retrieve_products.limit(8)
     @taxonomies = Spree::Taxonomy.includes(root: :children)
-    render :template => "spree/pages/home"
+    render template: 'spree/pages/home'
   end
 
   private
 
     def get_homepage
-      @page = Spree::Page.find_by_path("/")
+      @page = Spree::Page.find_by_path('/')
       @posts = Spree::Post.web.limit(5)
       @config = Spree::ContentConfiguration.new
     end
