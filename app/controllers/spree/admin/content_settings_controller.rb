@@ -17,7 +17,7 @@ module Spree
           config[name] = value
         end
 
-        flash[:success] = Spree.t(:successfully_updated, :resource => Spree.t('essential_content.admin.content_settings'))
+        flash[:success] = t('spree.successfully_updated', resource: t('spree_essential_content.admin.content_settings'))
         redirect_to edit_admin_content_settings_path
       end
 
