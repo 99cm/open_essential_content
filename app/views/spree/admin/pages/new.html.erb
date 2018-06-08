@@ -1,12 +1,12 @@
 <% content_for :page_title do %>
-  <%= link_to Spree.t('admin.subnav.pages'), admin_pages_path %> / <%= Spree.t("essential_content.admin.page_new") %>
+  <%= link_to t('spree_admin.subnav.pages'), admin_pages_path %> / <%= t('spree_essential_content.admin.page_new') %>
 <% end %>
 
 <%= render 'spree/admin/shared/error_messages', target: @page %>
 
 <%= form_for([:admin, @page], html: { multipart: true }) do |form| %>
   <fieldset data-hook="new_page">
-    <%= render "form", form: form %>
+    <%= render 'form', form: form %>
     <%= render partial: 'spree/admin/shared/new_resource_links' %>
   </fieldset>
 <% end %>
