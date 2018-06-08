@@ -6,7 +6,7 @@
   <fieldset>
     <legend><%= t('spree.new_image') %></legend>
 
-    <%= render 'form', form: f %>
+    <%= render 'form', locals: { f: f } %>
 
     <div class="filter-actions actions">
       <%= button t('spree.create'), 'ok' %>
