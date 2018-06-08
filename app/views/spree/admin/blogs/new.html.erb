@@ -10,7 +10,7 @@
 
 <%= form_for([:admin, @blog]) do |f| %>
   <fieldset class='no-border-top'>
-    <%= render 'form', form: f %>
+    <%= render 'form', locals: { f: f } %>
     <%= render partial: 'spree/admin/shared/new_resource_links' %>
   </fieldset>
 <% end %>
