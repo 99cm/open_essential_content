@@ -1,7 +1,7 @@
 <%= render partial: 'spree/admin/shared/contents_sub_menu' %>
 
 <% content_for :page_title do %>
-  <%= Spree.t('essential_content.admin.upload_edit') %>
+  <%= t('spree_essential_content.admin.upload_edit') %>
 <% end %>
 
 <% if @upload.try(:errors).present? %>
@@ -13,21 +13,21 @@
     <legend align="center"><%= @upload.attachment_file_name%></legend>
     <div class="field alpha three columns align-center">
       <% if @upload.image_content? %>
-        <%= f.label Spree.t('essential_content.upload.preivew') %><br/>
+        <%= f.label t('spree_essential_content.upload.preivew') %><br/>
         <%= link_to image_tag(@upload.attachment.url(:small)), @upload.attachment.url(:original) %>
       <% else %>
-        <%= f.label Spree.t('essential_content.upload.link') %><br/>
+        <%= f.label t('spree_essential_content.upload.link') %><br/>
         <%= link_to @upload.attachment_file_name, @upload.attachment.url %>
       <% end %>
     </div>
     <div class="nine columns omega">
-      <%= render "form", form: f %>
+      <%= render "form", locals: { f: f } %>
     </div>
     <div class="clear"></div>
     <div class="filter-actions actions">
-      <%= button Spree.t(:update), 'refresh' %>
-      <span class="or"><%= Spree.t(:or) %></span>
-      <%= button_link_to Spree.t(:cancel), admin_uploads_path, icon: 'remove' %>
+      <%= button t('spree.update'), 'refresh' %>
+      <span class="or"><%= t('spree.or') %></span>
+      <%= button_link_to t('spree.cancel'), admin_uploads_path, icon: 'remove' %>
     </div>
   </fieldset>
 <% end %>
