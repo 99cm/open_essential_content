@@ -1,7 +1,7 @@
 <%= render partial: 'spree/admin/shared/post_tabs', locals: {current: "Related Products"} %>
 
 <% content_for :page_actions do %>
-  <%= button_link_to Spree.t('essential_content.admin.post_product.new'), new_admin_post_product_url(@post), { class: "btn-success", icon: 'plus', id: 'new_related_product_link'} %>
+  <%= button_to t('spree_essential_content.admin.post_product.new'), new_admin_post_product_url(@post), { class: "btn-success", icon: 'plus', id: 'new_related_product_link'} %>
 <% end %>
 
 <% if @post.post_products.any? %>
@@ -14,8 +14,8 @@
     </colgroup>
     <thead data-hook="option_header">
       <tr data-hook="post_product_header">
-        <th colspan="2"><%= Spree.t(:sku) %></th>
-        <th><%= Spree.t(:description) %></th>
+        <th colspan="2"><%= t('spree.sku') %></th>
+        <th><%= t('spree.description') %></th>
         <th class="actions"></th>
       </tr>
     </thead>
@@ -36,6 +36,6 @@
   </table>
 <% else %>
   <div class="alert alert-info no-objects-found">
-    <%= Spree.t(:no_resource_found, resource: "Related Products") %>
+    <%= t('spree.no_resource_found', resource: "Related Products") %>
   </div>
 <% end %>
