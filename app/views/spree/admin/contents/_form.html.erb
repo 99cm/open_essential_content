@@ -1,18 +1,18 @@
 <%= form.field_container :title, class: ["form-group"]  do %>
-  <%= form.label :title, Spree.t('essential_content.content.title') %><br />
-  <%= form.text_field :title, :class => "form-control"  %>
+  <%= form.label :title, t('spree_essential_content.content.title') %><br />
+  <%= form.text_field :title, class: 'form-control' %>
   <%= error_message_on :content, :title %>
 <% end %>
 
-<%= form.field_container :hide_title, class: ["form-group"] do %>
-  <%= form.label :hide_title, Spree.t('essential_content.content.hide_title') %><br />
+<%= form.field_container :hide_title, class: ['form-group'] do %>
+  <%= form.label :hide_title, t('spree_essential_content.content.hide_title') %><br />
   <%= error_message_on :content, :hide_title %>
-  <%= form.check_box :hide_title, class: "form-control" %>
+  <%= form.check_box :hide_title, class: 'form-control' %>
 <% end %>
 
-<%= form.field_container :page, class: ["form-group"] do %>
-  <%= form.label :page_id, Spree.t('essential_content.content.page') %><br />
-  <%= form.select :page_id, @pages.collect{|i| [i.title, i.id]}, {}, class: "select2"  %>
+<%= form.field_container :page, class: ['form-group'] do %>
+  <%= form.label :page_id, t('spree_essential_content.content.page') %><br />
+  <%= form.select :page_id, @pages.collect{|i| [i.title, i.id]}, {}, class: 'select2' %>
   <%= error_message_on :content, :page_id %>
 <% end %>
 
@@ -27,28 +27,28 @@
   </script>
 </div>
 
-<%= form.field_container :body, class: ["form-group"] do %>
-  <%= form.label :title, Spree.t('essential_content.content.body') %><br />
-  <%= form.text_area :body, rows: 10, class: "fullwidth" %>
+<%= form.field_container :body, class: ['form-group'] do %>
+  <%= form.label :title, t('spree_essential_content.content.body') %><br />
+  <%= form.text_area :body, rows: 10, class: 'fullwidth' %>
   <%= error_message_on :content, :body %>
 <% end %>
 
-<%= form.field_container :context, class: ["form-group"] do %>
-  <%= form.label :context, Spree.t('essential_content.content.context') %><br />
-  <%= form.text_field :context, class: "form-control"  %>
+<%= form.field_container :context, class: ['form-group'] do %>
+  <%= form.label :context, t('spree_essential_content.content.context') %><br />
+  <%= form.text_field :context, class: 'form-control' %>
   <%= error_message_on :content, :context %>
 <% end %>
 
-<%= form.field_container :attachment, class: ["form-group"] do %>
-  <%= form.label :attachment, Spree.t('essential_content.content.attachment') %><br />
+<%= form.field_container :attachment, class: ['form-group'] do %>
+  <%= form.label :attachment, t('spree_essential_content.content.attachment') %><br />
   <%= form.file_field :attachment %>
   <%= error_message_on :content, :attachment %>
 <% end %>
 
 <% if @content.attachment.exists?(:mini) %>
-  <%= form.field_container :delete_attachment, class: ["form-group"] do %>
+  <%= form.field_container :delete_attachment, class: ['form-group'] do %>
     <%= form.check_box :delete_attachment %>
-    <%= form.label :delete_attachment, Spree.t('essential_content.content.delete_attachment') %><br />
+    <%= form.label :delete_attachment, t('spree_essential_content.content.delete_attachment') %><br />
   <% end %>
 <% end %>
 
@@ -56,14 +56,14 @@
   <p><%= image_tag @content.attachment.url(:mini) %></p>
 <% end %>
 
-<%= form.field_container :link, class: ["form-group"] do %>
-  <%= form.label :link, Spree.t('essential_content.content.link') %><br />
-  <%= form.text_field :link, class: "form-control" %>
+<%= form.field_container :link, class: ['form-group'] do %>
+  <%= form.label :link, t('spree_essential_content.content.link') %><br />
+  <%= form.text_field :link, class: 'form-control' %>
   <%= error_message_on :content, :link %>
 <% end %>
 
-<%= form.field_container :link_text, class: ["form-group"] do %>
-  <%= form.label :link_text, Spree.t('essential_content.content.link_text') %><br />
-  <%= form.text_field :link_text, class: "form-control"  %>
+<%= form.field_container :link_text, class: ['form-group'] do %>
+  <%= form.label :link_text, t('spree_essential_content.content.link_text') %><br />
+  <%= form.text_field :link_text, class: 'form-control' %>
   <%= error_message_on :content, :link_text %>
 <% end %>
