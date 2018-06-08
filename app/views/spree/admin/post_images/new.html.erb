@@ -1,14 +1,14 @@
 <%= render partial: 'spree/admin/shared/post_tabs', locals: {current: "Images"} %>
 
 <% content_for :page_title do %>
-  / <%= Spree.t('essential_content.admin.post_image.new') %>
+  / <%= t('spree_essential_content.admin.post_image.new') %>
 <% end %>
 
 <%= render 'spree/admin/shared/error_messages', target: @post_image %>
 
 <%= form_for(@post_image, url: admin_post_images_path(@post), html: { multipart: true }) do |form| %>
   <fieldset data-hook="new_image">
-    <%= render "form", form: form %>
+    <%= render 'form', form: form %>
     <%= render partial: 'spree/admin/shared/new_resource_links' %>
   </fieldset>
 <% end %>
