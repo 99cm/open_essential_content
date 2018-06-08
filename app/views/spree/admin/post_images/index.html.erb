@@ -1,5 +1,5 @@
 <% content_for :page_actions do %>
-  <%= button_link_to Spree.t(:new_image), new_admin_post_image_url(@post), { class: "btn-success", icon: 'plus', id: 'new_image_link'} %>
+  <%= button_to t('spree.new_image'), new_admin_post_image_url(@post), { class: 'btn-success', icon: 'plus', id: 'new_image_link'} %>
 <% end %>
 
 <%= render partial: 'spree/admin/shared/post_tabs', locals: {current: "Images"} %>
@@ -14,8 +14,8 @@
     </colgroup>
     <thead>
       <tr>
-        <th colspan="2"><%= Spree.t("thumbnail") %></th>
-        <th><%= Spree.t(:alt_text) %></th>
+        <th colspan="2"><%= t('spree.thumbnail') %></th>
+        <th><%= t('spree.alt_text') %></th>
         <th data-hook="admin_post_images_index_header_actions" class="actions"></th>
       </tr>
     </thead>
@@ -37,7 +37,7 @@
   </table>
 <% else %>
   <div class="alert alert-info no-objects-found">
-    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::PostImage)) %>,
-    <%= link_to Spree.t(:add_one), new_object_url %>!
+    <%= t('spree.no_resource_found', resource: plural_resource_name(Spree::PostImage)) %>,
+    <%= link_to t('spree.add_one'), new_object_url %>!
   </div>
 <% end %>
