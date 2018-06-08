@@ -1,10 +1,10 @@
 <% content_for :page_title do %>
-  <%= Spree.t('essential_content.admin.post_listing') %>
+  <%= t('spree_essential_content.admin.post_listing') %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= button_link_to Spree.t('essential_content.admin.post_new'), new_admin_post_url, { class: "btn-success", icon: 'plus', id: 'admin_new_post'} %>
-  <%= button_link_to Spree.t('essential_content.admin.blog_manage'), admin_blogs_url, { class: "btn-success", icon: 'file', id: 'admin_manage_blogs'} %>
+  <%= button_to t('spree_essential_content.admin.post_new'), new_admin_post_url, { class: "btn-success", icon: 'plus', id: 'admin_new_post'} %>
+  <%= button_to t('spree_essential_content.admin.blog_manage'), admin_blogs_url, { class: "btn-success", icon: 'file', id: 'admin_manage_blogs'} %>
 <% end %>
 
 <% content_for :table_filter do %>
@@ -14,20 +14,20 @@
       <div data-hook="admin_posts_index_search" class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <%= f.label :blog_id_eq, Spree.t("essential_content.blog.name") %>
+            <%= f.label :blog_id_eq, t('spree_essential_content.blog.name') %>
             <%= f.select :blog_id_eq, Spree::Blog.to_options, {}, {selected: (params[:q][:blog_id_eq] if params[:q]), include_blank: true, class: 'form-control dropdown' }  %>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <%= f.label :title_cont, Spree.t("essential_content.post.title") %>
+            <%= f.label :title_cont, t('spree_essential_content.post.title') %>
             <%= f.text_field :title_cont, size: 25, class: 'form-control title' %>
           </div>
         </div>
       </div>
 
       <div class="form-buttons actions filter-actions" data-hook="admin_products_index_search_buttons">
-        <%= button Spree.t(:search), 'search' %>
+        <%= button t('spree.search'), 'search' %>
       </div>
     <% end %>
   </div>
@@ -39,10 +39,10 @@
   <table class="table" id="listing_posts">
     <thead>
       <tr data-hook="admin_blog_posts_index_headers">
-          <th><%= sort_link @search, :title, Spree.t("essential_content.post.title") %></th>
-          <th><%= sort_link @search, :blog,  Spree.t("essential_content.blog.name") %></th>
-          <th><%= sort_link @search, :posted_at, Spree.t("essential_content.post.posted_at") %></th>
-          <th><%= sort_link @search, :live, Spree.t("essential_content.post.live") %></th>
+          <th><%= sort_link @search, :title, t('spree_essential_content.post.title') %></th>
+          <th><%= sort_link @search, :blog, t('spree_essential_content.blog.name') %></th>
+          <th><%= sort_link @search, :posted_at, t('spree_essential_content.post.posted_at') %></th>
+          <th><%= sort_link @search, :live, t('spree_essential_content.post.live') %></th>
           <th data-hook="admin_posts_index_header_actions" class="actions"></th>
       </tr>
     </thead>
@@ -63,7 +63,7 @@
   </table>
 <% else %>
   <div class="alert alert-info no-objects-found">
-    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::Post)) %>,
-    <%= link_to Spree.t(:add_one), new_object_url %>!
+    <%= t('spree.no_resource_found', resource: plural_resource_name(Spree::Post)) %>,
+    <%= link_to t('spree.add_one'), new_object_url %>!
   </div>
 <% end %>
