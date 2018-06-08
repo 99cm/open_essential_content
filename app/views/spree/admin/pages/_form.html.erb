@@ -1,29 +1,29 @@
 <div class="row">
   <div class="col-md-6">
     <fieldset data-hook="new_product">
-      <legend align="center"><%= Spree.t('essential_content.page.info') %></legend>
+      <legend align="center"><%= t('spree_essential_content.page.info') %></legend>
 
       <%= form.field_container :title, class: ['form-group'] do %>
-        <%= form.label :title, raw(Spree.t("essential_content.page.title") + content_tag(:span, ' *', class: "required")) %>
-        <%= form.text_field :title, class: "form-control title" %>
+        <%= form.label :title, raw(t('spree_essential_content.page.title') + content_tag(:span, ' *', class: "required")) %>
+        <%= form.text_field :title, class: 'form-control' %>
         <%= error_message_on :page, :title %>
       <% end %>
 
       <%= form.field_container :meta_title, class: ['form-group'] do %>
-        <%= form.label :meta_title, Spree.t('essential_content.page.meta_title') %><br />
-        <%= form.text_field :meta_title, class: "form-control title" %>
+        <%= form.label :meta_title, t('spree_essential_content.page.meta_title') %><br />
+        <%= form.text_field :meta_title, class: 'form-control' %>
         <%= error_message_on :page, :meta_title %>
       <% end %>
 
       <%= form.field_container :meta_description, class: ['form-group'] do %>
-        <%= form.label :meta_description, Spree.t('essential_content.page.meta_description') %><br />
-        <%= form.text_field :meta_description, class: "form-control title" %>
+        <%= form.label :meta_description, t('spree_essential_content.page.meta_description') %><br />
+        <%= form.text_field :meta_description, class: 'form-control' %>
         <%= error_message_on :page, :meta_description %>
       <% end %>
 
       <%= form.field_container :meta_keywords, class: ['form-group'] do %>
-        <%= form.label :meta_keywords, Spree.t('essential_content.page.meta_keywords') %><br />
-        <%= form.text_field :meta_keywords, class: "form-control title" %>
+        <%= form.label :meta_keywords, t('spree_essential_content.page.meta_keywords') %><br />
+        <%= form.text_field :meta_keywords, class: 'form-control' %>
         <%= error_message_on :page, :meta_keywords %>
       <% end %>
     </fieldset>
@@ -31,33 +31,33 @@
 
   <div class="col-md-6">
     <fieldset data-hook="new_product">
-      <legend align="center"><%= Spree.t('essential_content.page.accessibility') %></legend>
+      <legend align="center"><%= t('spree_essential_content.page.accessibility') %></legend>
 
       <%= form.field_container :accessible, class: ['form-group'] do %>
-        <%= form.check_box :accessible, class: "text"  %> &nbsp;
-        <%= form.label :accessible, Spree.t('essential_content.page.accessible') %>
-        <p class="help-block"><%= Spree.t('essential_content.page.explain_accessible') %></p>
+        <%= form.check_box :accessible, class: "text" %> &nbsp;
+        <%= form.label :accessible, t('spree_essential_content.page.accessible') %>
+        <p class="help-block"><%= t('spree_essential_content.page.explain_accessible') %></p>
         <%= error_message_on :page, :accessible %>
       <% end %>
 
       <div id="page_accessible_fields">
         <%= form.field_container :path, class: ['form-group'] do %>
-          <%= form.label :path, Spree.t('essential_content.page.path') %><br />
-          <%= form.text_field :path, class: "form-control title" %>
+          <%= form.label :path, t('spree_essential_content.page.path') %><br />
+          <%= form.text_field :path, class: 'form-control' %>
           <%= error_message_on :page, :path %>
         <% end %>
 
         <%= form.field_container :visible, class: ['form-group'] do %>
           <%= form.check_box :visible, class: "text" %> &nbsp;
-          <%= form.label :visible, Spree.t('essential_content.page.visible') %>
-          <p class="help-block"><%= Spree.t('essential_content.page.explain_visible') %></p>
+          <%= form.label :visible, t('spree_essential_content.page.visible') %>
+          <p class="help-block"><%= t('spree_essential_content.page.explain_visible') %></p>
           <%= error_message_on :page, :visible %>
         <% end %>
 
         <div id="page_visible_fields">
           <%= form.field_container :nav_title, class: ['form-group'] do %>
-            <%= form.label :nav_title, Spree.t('essential_content.page.nav_title') %><br />
-            <%= form.text_field :nav_title, class: "form-control title" %>
+            <%= form.label :nav_title, t('spree_essential_content.page.nav_title') %><br />
+            <%= form.text_field :nav_title, class: 'form-control' %>
             <%= error_message_on :page, :nav_title %>
           <% end %>
         </div>
