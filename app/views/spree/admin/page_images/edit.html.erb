@@ -1,4 +1,4 @@
-<%= render partial: 'spree/admin/shared/page_tabs', locals: {page: @page, current: "Images"} %>
+<%= render partial: 'spree/admin/shared/page_tabs', locals: {page: @page, current: 'Images'} %>
 
 <% if @page_image.try(:errors).present? %>
   <%= render 'spree/shared/error_messages', target: @page_image %>
@@ -6,7 +6,7 @@
 
 <%= form_for([:admin, @page.id, @page_image], url: admin_page_image_url(@page, @page_image), html: { multipart: true }) do |f| %>
   <fieldset>
-    <legend><%= (Spree.t('essential_content.admin.page_image_editing') + " - #{@page_image.attachment_file_name}").html_safe %></legend>
+    <legend><%= (t('spree_essential_content.admin.page_image_editing') + " - #{@page_image.attachment_file_name}").html_safe %></legend>
 
     <div class="field">
       <%= label_tag (:preview) %>
@@ -14,12 +14,12 @@
         <%= link_to(image_tag(@page_image.attachment.url(:medium)), @page_image.attachment.url(:large)) %>
       </div>
     </div>
-    <%= render "form", :form => f %>
+    <%= render 'form', form: f %>
 
     <div class="filter-actions actions">
-      <%= button Spree.t(:update), 'refresh' %>
-      <span class="or"><%= Spree.t(:or) %></span>
-      <%= button_link_to Spree.t(:cancel), admin_page_images_url(@page), icon: 'remove', id: "cancel_link" %>
+      <%= button t('spree.update'), 'refresh' %>
+      <span class="or"><%= t('spree.or') %></span>
+      <%= button_to t('spree.cancel'), admin_page_images_url(@page), icon: 'remove', id: "cancel_link" %>
     </div>
   </fieldset>
 <% end %>
