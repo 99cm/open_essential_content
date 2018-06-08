@@ -1,7 +1,7 @@
 <% if defined?(images) && !images.nil? %>
   <ul class="bxslider">
     <% images.each do |image| %>
-      <li><%= image_tag image.attachment.url(size), :alt => image.alt %></li>
+      <li><%= image_tag image.attachment.url(size), alt: 'image.alt' %></li>
     <% end %>
   </div>
 <% end %>
