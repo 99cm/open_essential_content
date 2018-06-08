@@ -14,7 +14,7 @@
         <%= link_to(image_tag(@page_image.attachment.url(:medium)), @page_image.attachment.url(:large)) %>
       </div>
     </div>
-    <%= render 'form', form: f %>
+    <%= render 'form', locals: { f: f } %>
 
     <div class="filter-actions actions">
       <%= button t('spree.update'), 'refresh' %>
