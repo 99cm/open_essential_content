@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Adds the Content button to the admin tabs
 Deface::Override.new(
   virtual_path: 'spree/layouts/admin',
