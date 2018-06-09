@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spree
   class PagesController < StoreController
 
@@ -6,7 +8,7 @@ module Spree
 
     def show
       @page = current_page
-      raise ActionController::RoutingError.new("No route matches [GET] #{request.path}") if @page.nil?
+      raise ActionController::RoutingError, "No route matches [GET] #{request.path}" if @page.nil?
       if @page.root?
         @posts = Spree::Post.live.limit(5)
         render template: 'spree/pages/home'
@@ -14,8 +16,9 @@ module Spree
     end
 
     private
-      def accurate_title
-        @page.meta_title
-      end
+
+    def accurate_title
+      @page.meta_title
+    end
   end
 end
