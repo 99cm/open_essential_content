@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Spree::HomeController.class_eval do
   before_action :get_homepage
 
@@ -12,14 +14,13 @@ Spree::HomeController.class_eval do
 
   private
 
-    def get_homepage
-      @page = Spree::Page.find_by_path('/')
-      @posts = Spree::Post.web.limit(5)
-      @config = Spree::ContentConfiguration.new
-    end
+  def get_homepage
+    @page = Spree::Page.find_by_path('/')
+    @posts = Spree::Post.web.limit(5)
+    @config = Spree::ContentConfiguration.new
+  end
 
-    def accurate_title
-      @page.meta_title unless @page.nil?
-    end
-
+  def accurate_title
+    @page.meta_title unless @page.nil?
+  end
 end
