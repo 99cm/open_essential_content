@@ -1,9 +1,10 @@
-class Spree::PostImage < Spree::Asset
+# frozen_string_literal: true
 
+class Spree::PostImage < Spree::Asset
   has_attached_file :attachment,
-    styles: Proc.new{ |clip| clip.instance.attachment_sizes },
-    url: '/spree/posts/:id/:style/:basename.:extension',
-    path: ':rails_root/public/spree/posts/:id/:style/:basename.:extension'
+                    styles: Proc { |clip| clip.instance.attachment_sizes },
+                    url: '/spree/posts/:id/:style/:basename.:extension',
+                    path: ':rails_root/public/spree/posts/:id/:style/:basename.:extension'
 
   validates_attachment_content_type :attachment, content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
   validates_attachment_presence :attachment
@@ -17,5 +18,4 @@ class Spree::PostImage < Spree::Asset
     hash.merge!(mini: '48x48>', small: '150x150>', medium: '600x600>', large: '950x700>') if image_content?
     hash
   end
-    
 end
