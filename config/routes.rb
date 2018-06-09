@@ -56,6 +56,6 @@ Spree::Core::Engine.add_routes do
   end
 
   constraints(Spree::PossiblePage) do
-    get '/:path', to: 'pages#show', as: 'page'
+    get ':path', to: 'pages#show', as: 'page'
   end
 end
