@@ -16,7 +16,7 @@ If you don't already have an existing Spree site, [click here](https://github.co
 Spree Essential Content can be installed by itself by adding the following to your Gemfile:
 
 ```ruby
-gem 'spree_essential_content', github: 'ronzalo/spree_essential_content'
+gem 'spree_essential_content', github: '99cm/spree_essential_content'
 ```
 
 If you are using a version of spree lower than 2.4, please see one of the stable branches for the right version of this gem. Please also note I am not maintaining anything below Spree 2.3 now.
