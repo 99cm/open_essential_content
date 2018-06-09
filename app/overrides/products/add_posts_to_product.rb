@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Adds posts display to products
 Deface::Override.new(virtual_path:  'spree/products/show',
                      name:          'add_posts_to_products_display',
