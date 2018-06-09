@@ -13,7 +13,7 @@
           <div class="col-xs-12 col-md-6">
             <div class="form-group">
               <%= f.label :title_cont, t('spree_essential_content.page.title') %>
-              <%= f.text_field :title_cont, size: 25 %>
+              <%= f.text_field :title_cont, size: 25, class: 'form-control js-quick-search-target' %>
             </div>
           </div>
           <div class="col-xs-12 col-md-6">
@@ -24,9 +24,7 @@
           </div>
         </div>
 
-       <div class="clear"></div>
-
-        <div class="form-buttons actions filter-actions" data-hook="admin_products_index_search_buttons">
+        <div class="form actions" data-hook="admin_products_index_search_buttons">
           <%= button t('spree.search'), 'search' %>
         </div>
     <% end %>
@@ -38,10 +36,10 @@
 <table class="table sortable" data-sortable-link="<%= update_positions_admin_pages_url -%>">
   <thead>
   <tr>
-      <th colspan="2"><%= sort_link @search, :title, t('spree_essential_content.page.title') %></th>
-      <th><%= sort_link @search, :path, t('spree_essential_content.page.path') %></th>
-      <th><%= sort_link @search, :accessible, t('spree_essential_content.page.accessible') %></th>
-      <th><%= sort_link @search, :visible, t('spree_essential_content.page.visible') %></th>
+      <th colspan="2"><%= t('spree_essential_content.page.title') %></th>
+      <th><%= t('spree_essential_content.page.path') %></th>
+      <th><%= t('spree_essential_content.page.accessible') %></th>
+      <th><%= t('spree_essential_content.page.visible') %></th>
       <th data-hook="admin_posts_index_header_actions" class="actions"></th>
   </tr>
   </thead>
