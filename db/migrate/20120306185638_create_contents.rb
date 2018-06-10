@@ -16,7 +16,7 @@ class CreateContents < ActiveRecord::Migration[5.2]
       t.integer    :attachment_file_size
       t.datetime   :attachment_updated_at
 
-      t.timestamps
+      t.timestamps null: false
     end
 
   end
