@@ -1,4 +1,4 @@
-class AddSpreeNamespaceToBlog < ActiveRecord::Migration[4.2]
+class AddSpreeNamespaceToBlog < ActiveRecord::Migration[5.2]
   def up
     rename_table :posts, :spree_posts
     rename_table :post_categories, :spree_post_categories
