@@ -1,4 +1,4 @@
-class AddBlogIdToSpreePosts < ActiveRecord::Migration[4.2]
+class AddBlogIdToSpreePosts < ActiveRecord::Migration[5.2]
   def self.up
     add_column :spree_posts, :blog_id, :integer
   end
