@@ -7,7 +7,7 @@ module Spree::Blogs::PostsControllerHelper
     before_action :get_blog
   end
 
-private
+  private
 
   def default_scope
     @blog.posts.live
