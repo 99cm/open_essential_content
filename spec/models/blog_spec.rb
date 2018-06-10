@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spree::Blog, type: :model do
+RSpec.describe Spree::Blog, type: :model do
   it "is valid with a name and permalink" do
     expect(build(:blog)).to be_valid
   end
