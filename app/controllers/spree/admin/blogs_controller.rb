@@ -7,10 +7,10 @@ module Spree
         redirect_to admin_blogs_path
       end
 
-    private
+      private
 
       def find_resource
-        Spree::Blog.find_by_permalink!(params[:id])
+        Spree::Blog.friendly.find(params[:id])
       end
 
       def collection
@@ -19,7 +19,6 @@ module Spree
         @search = Spree::Blog.search(params[:q])
         @collection = @search.result.page(params[:page]).per(Spree::Config[:admin_orders_per_page])
       end
-
     end
   end
 end
