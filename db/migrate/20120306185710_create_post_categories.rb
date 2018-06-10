@@ -1,6 +1,6 @@
-class CreatePostCategories < ActiveRecord::Migration[4.2]
+class CreatePostCategories < ActiveRecord::Migration[5.2]
   def self.up
-    create_table :post_categories, :force => true do |t|
+    create_table :post_categories, force: true do |t|
       t.string :name
       t.string :permalink
       t.timestamps
