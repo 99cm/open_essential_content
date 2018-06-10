@@ -1,4 +1,4 @@
-describe Spree::PossibleBlog, type: :model do
+RSpec.describe Spree::PossibleBlog, type: :model do
   context 'The route matcher' do
     let(:new_blog) {create(:blog)}
     it 'is true when valid page' do
@@ -33,7 +33,7 @@ describe Spree::PossibleBlog, type: :model do
   end
 end
 
-describe Spree::PossiblePage, type: :model do
+RSpec.describe Spree::PossiblePage, type: :model do
   context 'The route matcher' do
     let(:new_page) {create(:page)}
     it 'is true when valid page' do
