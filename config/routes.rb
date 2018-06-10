@@ -55,7 +55,7 @@ Spree::Core::Engine.add_routes do
     get ':blog_id' to: 'posts#index', as: :blog_posts
   end
 
-  constraints(Spree::PossiblePage) do
-    get ':path', to: 'pages#show', as: 'page'
-  end
+  # constraints(Spree::PossiblePage) do
+    get 'pages/:path', to: 'pages#show', as: 'page'
+  # end
 end
