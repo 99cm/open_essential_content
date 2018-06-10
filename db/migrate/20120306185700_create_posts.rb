@@ -8,7 +8,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.text       :body
       t.string     :author
       t.boolean    :live,      default: true
-      t.timestamps
+      t.timestamps nill: false
     end
   end
 
