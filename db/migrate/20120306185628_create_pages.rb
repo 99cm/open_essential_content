@@ -1,4 +1,4 @@
-class CreatePages < ActiveRecord::Migration[4.2]
+class CreatePages < ActiveRecord::Migration[5.2]
   def self.up
     create_table :pages do |t|
       t.string     :title
@@ -7,9 +7,9 @@ class CreatePages < ActiveRecord::Migration[4.2]
       t.string     :meta_title
       t.string     :meta_description
       t.string     :meta_keywords
-      t.integer    :position,   :default => 999
-      t.boolean    :accessible, :default => true
-      t.boolean    :visible,    :default => true
+      t.integer    :position,   default: 999
+      t.boolean    :accessible, default: true
+      t.boolean    :visible,    default: true
 
       t.timestamps
     end
