@@ -1,4 +1,4 @@
-class UpdateBlogPermalinks < ActiveRecord::Migration[4.2]
+class UpdateBlogPermalinks < ActiveRecord::Migration[5.2]
   def up
     Spree::Blog.all.each do |f|
       f.update_attribute :permalink, Spree::Blog.normalize_permalink(f.permalink)
