@@ -1,4 +1,4 @@
-class AddTranslationsToSpreeContent < ActiveRecord::Migration[5.1]
+class AddTranslationsToSpreeContent < ActiveRecord::Migration[5.2]
   def self.up
     params = {
       title: :string,
