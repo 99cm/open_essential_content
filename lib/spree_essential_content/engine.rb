@@ -8,9 +8,9 @@ module SpreeEssentialContent
     #  Spree::EssentialContent::Config = Spree::BlogConfiguration.new
     #end
 
-    initializer "spree.essential_content.paperclip", :before => :load_config_initializers do |app|
+    initializer "spree.essential_content.paperclip", before: :load_config_initializers do |app|
       Paperclip::Attachment.default_options.merge!(
-        :style => :medium
+        style: :medium
       )
     end
 
