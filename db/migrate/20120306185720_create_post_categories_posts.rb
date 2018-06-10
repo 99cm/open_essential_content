@@ -1,6 +1,6 @@
-class CreatePostCategoriesPosts < ActiveRecord::Migration[4.2]
+class CreatePostCategoriesPosts < ActiveRecord::Migration[5.2]
   def self.up
-    create_table :post_categories_posts, :id => false, :force => true do |t|
+    create_table :post_categories_posts, id: false, force: true do |t|
       t.integer :post_id
       t.integer :post_category_id
     end
