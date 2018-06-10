@@ -11,7 +11,7 @@ class CreatePages < ActiveRecord::Migration[5.2]
       t.boolean    :accessible, default: true
       t.boolean    :visible,    default: true
 
-      t.timestamps
+      t.timestamps null: false
     end
 
   end
