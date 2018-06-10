@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spree::Content, type: :model do
+RSpec.describe Spree::Content, type: :model do
   it "is valid with a page and title" do
     expect(build(:content)).to be_valid
   end
