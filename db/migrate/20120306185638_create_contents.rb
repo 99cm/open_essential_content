@@ -1,4 +1,4 @@
-class CreateContents < ActiveRecord::Migration[4.2]
+class CreateContents < ActiveRecord::Migration[5.2]
   def self.up
     create_table :contents do |t|
       t.references :page
@@ -7,9 +7,9 @@ class CreateContents < ActiveRecord::Migration[4.2]
       t.string     :link
       t.string     :link_text
       t.string     :context
-      t.boolean    :hide_title, :default => false
+      t.boolean    :hide_title, default: false
 
-      t.integer    :position, :default => 999
+      t.integer    :position, default: 999
 
       t.string     :attachment_file_name
       t.string     :attachment_content_type
