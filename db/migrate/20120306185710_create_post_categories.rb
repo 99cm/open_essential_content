@@ -3,7 +3,7 @@ class CreatePostCategories < ActiveRecord::Migration[5.2]
     create_table :post_categories, force: true do |t|
       t.string :name
       t.string :permalink
-      t.timestamps
+      t.timestamps null: false
     end
   end
 
