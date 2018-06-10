@@ -3,7 +3,7 @@ class CreateSpreeBlogs < ActiveRecord::Migration[5.2]
     create_table :spree_blogs do |t|
       t.string     :name, nil: false
       t.string     :permalink, nil: false, length: 40
-      t.timestamps
+      t.timestamps null: false
     end
   end
 
