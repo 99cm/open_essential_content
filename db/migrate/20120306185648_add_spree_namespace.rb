@@ -1,4 +1,4 @@
-class AddSpreeNamespace < ActiveRecord::Migration[4.2]
+class AddSpreeNamespace < ActiveRecord::Migration[5.2]
   def up
     rename_table :contents, :spree_contents
     rename_table :pages, :spree_pages
