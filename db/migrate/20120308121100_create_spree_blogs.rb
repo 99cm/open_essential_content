@@ -1,8 +1,8 @@
-class CreateSpreeBlogs < ActiveRecord::Migration[4.2]
+class CreateSpreeBlogs < ActiveRecord::Migration[5.2]
   def self.up
     create_table :spree_blogs do |t|
-      t.string     :name, :nil => false
-      t.string     :permalink, :nil => false, :length => 40
+      t.string     :name, nil: false
+      t.string     :permalink, nil: false, length: 40
       t.timestamps
     end
   end
