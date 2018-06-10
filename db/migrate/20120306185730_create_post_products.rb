@@ -1,4 +1,4 @@
-class CreatePostProducts < ActiveRecord::Migration[4.2]
+class CreatePostProducts < ActiveRecord::Migration[5.2]
   def self.up
     create_table :post_products do |t|
       t.references :post
