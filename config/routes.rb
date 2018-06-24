@@ -45,14 +45,14 @@ Spree::Core::Engine.routes.draw do
       month: /\d{1,2}/,
       day: /\d{1,2}/
     ) do
-      get ':blog_id/:year(/:month(/:day))' to: 'posts#index', as: :post_date
-      get ':blog_id/:year/:month/:day/:id' to: 'posts#show',  as: :full_post
+      get ':blog_id/:year(/:month(/:day))', to: 'posts#index', as: :post_date
+      get ':blog_id/:year/:month/:day/:id', to: 'posts#show',  as: :full_post
     end
 
-    get ':blog_id/category/:id' to: 'post_categories#show', as: :post_category, constraints: { id: /.*/ }
-    get ':blog_id/search/:query' to: 'posts#search', as: :search_posts, query: /.*/
-    get ':blog_id/archive' to: 'posts#archive', as: :archive_posts
-    get ':blog_id' to: 'posts#index', as: :blog_posts
+    get ':blog_id/category/:id', to: 'post_categories#show', as: :post_category, constraints: { id: /.*/ }
+    get ':blog_id/search/:query', to: 'posts#search', as: :search_posts, query: /.*/
+    get ':blog_id/archive', to: 'posts#archive', as: :archive_posts
+    get ':blog_id', to: 'posts#index', as: :blog_posts
   end
 
   constraints(Spree::PossiblePage) do
