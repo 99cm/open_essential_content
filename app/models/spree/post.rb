@@ -2,7 +2,7 @@
 
 class Spree::Post < ActiveRecord::Base
   translates :title, :teaser, :body, fallbacks_for_empty_translations: true
-  include SpreeGlobalize::Translatable
+  include OpenGlobalize::Translatable
 
   extend FriendlyId
   friendly_id :path
@@ -12,7 +12,8 @@ class Spree::Post < ActiveRecord::Base
   # for flash messages
   alias_attribute :name, :title
 
-  has_and_belongs_to_many :post_categories, join_table: 'spree_post_categories_posts', class_name: 'Spree::PostCategory'
+  belongs_to :post_category
+  has_many :post_categories, join_table: 'spree_post_categories_posts', class_name: 'Spree::PostCategory'
   alias_attribute :categories, :post_categories
 
   belongs_to :blog, class_name: 'Spree::Blog'
@@ -21,8 +22,8 @@ class Spree::Post < ActiveRecord::Base
   has_many :images, -> { order(:position) }, as: :viewable, dependent: :destroy, class_name: 'Spree::PostImage'
 
   validates :blog_id, :title, presence: true
-  validates :path,  presence: true, uniqueness: true, if: proc { |record| !record.title.blank? }
-  validates :body,  presence: true
+  validates :path, presence: true, uniqueness: true, if: proc { |record| !record.title.blank? }
+  validates :body, presence: true
   validates :posted_at, datetime: true
 
   cattr_reader :per_page

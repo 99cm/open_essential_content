@@ -1,6 +1,8 @@
 require "spec_helper"
 
-feature "Pages", js: true do
+RSpec.feature "Pages", js: true do
+  let!(:store) { create(:store, default: true) }
+
   given!(:user) { create(:user) }
   stub_authorization!
 

@@ -2,7 +2,7 @@
 
 class Spree::Blog < ActiveRecord::Base
   translates :name, :permalink, fallbacks_for_empty_translations: true
-  include SpreeGlobalize::Translatable
+  include OpenGlobalize::Translatable
 
   extend FriendlyId
   friendly_id :permalink

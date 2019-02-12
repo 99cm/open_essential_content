@@ -16,6 +16,6 @@ end
 
 desc 'Generates a dummy app for testing'
 task :test_app do
-  ENV['LIB_NAME'] = 'spree_essential_content'
+  ENV['LIB_NAME'] = 'open_essential_content'
   Rake::Task['extension:test_app'].invoke
 end

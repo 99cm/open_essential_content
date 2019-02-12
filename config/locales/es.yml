@@ -46,6 +46,8 @@ es:
         nav_title: Navigation Título
         path: Ruta
         preview: Previsualización
+        show_in_footer: "Mostrar en el pie de página"
+        show_in_header: "Mostrar en la cabecera"
         title: Título
         visible: Visible
       post:

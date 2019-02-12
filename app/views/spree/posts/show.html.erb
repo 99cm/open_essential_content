@@ -6,7 +6,7 @@
   <div data-hook="post-images">
     <ul class="bxslider">
       <% @post.images.each_with_index do |image, index| %>
-        <li><%= link_to image_tag(image.attachment.url(:medium), alt: image.alt.blank? ? "#{@post.title} - Photo #{index + 1}" : image.alt), image.attachment.url(:large), id: 'photo_#{index}' %></p>
+        <li><%= link_to image_tag(main_app.url_for(@image.url(:medium)), alt: image.alt.blank? ? "#{@post.title} - Photo #{index + 1}" : image.alt), main_app.url_for(@image.url(:large)), id: 'photo_#{index}') %></p>
       <% end %>
     </ul>
   </div>
@@ -15,40 +15,19 @@
 <div data-hook="post-show">
   <div data-hook="post-title">
     <h1><%=h @post.title %></h1>
-    <span><%= t('spree_essential_content.posted_on') %> <strong><%= l @post.posted_at, format: :date_full %></strong> <%= t('spree_essential_content.by') %> <strong><%= @post.author %></strong></span>
+    <span><%= I18n.t('spree.essential_content.posted_on') %> <strong><%= l @post.posted_at, format: :date_full %></strong> <%= I18n.t('spree.essential_content.by') %> <strong><%= @post.author %></strong></span>
   </div>
 
   <%= @post.rendered_body %>
 
   <div data-hook="post-show-tags">
-    <h3><%= t('spree_essential_content.tagged') %>:</h3>
+    <h3><%= I18n.t('spree.essential_content.tagged') %>:</h3>
     <p><%= @post.tags.collect{|tag| link_to(tag.name, search_posts_path(@blog, tag.name)) }.join(", ").html_safe %></p>
   </div>
 
   <% unless @post.products.empty? %>
     <div data-hook="post-related-products">
       <%= render 'spree/shared/products', products: @post.products %>
-    </div>
-  <% end %>
-
-  <% disqus_short_name = Spree::ContentConfiguration.new[:disqus_shortname] %>
-  <% if !disqus_short_name.blank? %>
-    <div>
-      <h3><%= t('spree_essential_content.comments') %></h3>
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-          var disqus_shortname = <%== disqus_short_name.inspect %>;
-          var disqus_identifier = <%== @post.path.inspect %>;
-          var disqus_url = <%== request.url.inspect %>;
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
   <% end %>
 </div>

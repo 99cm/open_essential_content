@@ -1,24 +1,24 @@
 <% content_for :page_title do %>
-  <%= t('spree.editing_resource', resource: Spree::Content.model_name.human) %>
+  <%= I18n.t('spree.editing_resource', resource: Spree::Content.model_name.human) %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= button_to t('spree.back_to_resource_list', resource: Spree::Content.model_name.human), spree.admin_page_contents_path(@resource.page), class: 'btn-primary', icon: 'arrow-left' %>
+  <%= button_to I18n.t('spree.back_to_resource_list', resource: Spree::Content.model_name.human), spree.admin_page_contents_path(@resource.page), class: 'btn-primary', icon: 'arrow-left' %>
 <% end %>
 
 <%= render 'settings' %>
 
 <div class="row translations">
-  <div class="col-md-4">
+  <div class="col-4">
     <%= render 'fields' %>
   </div>
-  <div class="col-md-8">
+  <div class="col-8">
     <%= form_for [:admin, @resource.page, @resource] do |f| %>
       <%= render 'form_fields', f: f %>
       <div class="form-actions" data-hook="buttons">
-        <%= button t('spree.update'), 'update' %>
-        <span class="or"><%= t('spree.or') %></span>
-        <%= button_to t('spree.cancel'), spree.admin_page_contents_path(@resource.page), icon: 'remove' %>
+        <%= button I18n.t('spree.update'), 'update' %>
+        <span class="or"><%= I18n.t('spree.or') %></span>
+        <%= button_to I18n.t('spree.cancel'), spree.admin_page_contents_path(@resource.page), icon: 'remove' %>
       </div>
     <% end %>
   </div>

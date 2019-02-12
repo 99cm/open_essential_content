@@ -18,6 +18,7 @@ Spree::Core::Engine.routes.draw do
           post :update_positions
         end
       end
+      patch :translate, on: :member
     end
 
     resources :blogs, constraints: { id: /[a-z0-9\-\_\/]{3,}/ }
@@ -34,10 +35,13 @@ Spree::Core::Engine.routes.draw do
         end
       end
       resources :categories, except: [:show], controller: 'post_categories'
+      patch :translate, on: :member
     end
 
     resource :content_settings, only: [:edit, :update]
   end
+
+  # filter :locale
 
   constraints(Spree::PossibleBlog) do
     constraints(

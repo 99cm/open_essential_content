@@ -1,13 +1,13 @@
 <div class="posts" data-hook="posts-index">
   <% if @posts.blank? %>
-    <h1><%= t('spree_essential_content.no_posts') %></h1>
+    <h1><%= I18n.t('spree.essential_content.no_posts') %></h1>
   <% else %>
     <%= render partial: 'spree/shared/essential_content/preview', collection: @posts, as: :post %>
   <% end %>
 
   <%= link_to blog_posts_path(@blog, format: 'rss'), id: 'posts-rss' do %>
-    <%= image_tag 'blog/rss.png', alt: t('spree_essential_content.rss') %>
-    <%= t('spree_essential_content.rss') %>
+    <%= image_tag 'blog/rss.png', alt: t('spree.essential_content.rss') %>
+    <%= I18n.t('spree.essential_content.rss') %>
   <% end %>
   <%= paginate @posts %>
 

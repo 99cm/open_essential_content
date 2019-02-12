@@ -1,24 +1,20 @@
 require 'simplecov'
-SimpleCov.start do
-  add_filter 'spec/dummy'
-  add_group 'Controllers', 'app/controllers'
-  add_group 'Helpers', 'app/helpers'
-  add_group 'Mailers', 'app/mailers'
-  add_group 'Models', 'app/models'
-  add_group 'Views', 'app/views'
-  add_group 'Libraries', 'lib'
+SimpleCov.start 'rails'
+
+ENV['RAILS_ENV'] ||= 'test'
+
+begin
+  require File.expand_path('../dummy/config/environment', __FILE__)
+rescue LoadError
+  puts 'Could not load dummy application. Please ensure you have run `bundle exec rake test_app`'
+  exit
 end
-
-ENV['RAILS_ENV'] = 'test'
-
-require File.expand_path('../dummy/config/environment.rb',  __FILE__)
 
 require 'ffaker'
 require 'rspec/rails'
 require 'database_cleaner'
 require 'capybara/rspec'
 require 'capybara/rails'
-require 'paperclip/matchers'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
@@ -45,7 +41,6 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include Spree::TestingSupport::Preferences
   config.include Spree::TestingSupport::Flash
-  config.include Paperclip::Shoulda::Matchers
   config.include Devise::Test::ControllerHelpers, type: :controller
 
   config.extend Spree::TestingSupport::AuthorizationHelpers::Request, type: :feature

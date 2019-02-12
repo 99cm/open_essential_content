@@ -1,24 +1,23 @@
 # frozen_string_literal: true
 
 class Spree::PageImage < Spree::Asset
-  has_attached_file :attachment,
-                    styles: Proc { |clip| clip.instance.attachment_sizes },
-                    url: '/spree/pages/:id/:style/:basename.:extension',
-                    path: ':rails_root/public/spree/pages/:id/:style/:basename.:extension'
+  include Image::ActiveStorage
+  include Rails.application.routes.url_helpers
 
-  validates_attachment_content_type :attachment, content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
-  validates :attachment, attachment_presence: true
+  def styles
+    self.class.styles.map do |_, size|
+      width, height = size[/(\d+)x(\d+)/].split('x')
 
-  def image_content?
-    attachment_content_type.to_s.match(/\/(jpeg|png|gif|tiff|x-photoshop)/)
+      {
+        url: polymorphic_path(attachment.pages(resize: size), only_path: true),
+        width: width,
+        height: height
+      }
+    end
   end
 
-  def attachment_sizes
-    sizes = {}
-    if image_content?
-      sizes.merge!(mini: '48x48>', small: '150x150>', medium: '420x300>', large: '900x650>')
-      sizes[:slide] = '950x250#' if viewable.respond_to?(:root?) && viewable.root?
-    end
-    sizes
+  def image_content?
+    styles.merge!(mini: '48x48>', small: '150x150>', medium: '420x300>', large: '900x650>')
+    styles[:slide] = '950x250#' if viewable.respond_to?(:root?) && viewable.root?
   end
 end

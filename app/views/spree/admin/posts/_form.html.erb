@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-md-6" data-hook="admin_post_form_left">
+  <div class="col-6" data-hook="admin_post_form_left">
     <div data-hook="admin_post_form_blog_id">
       <%= f.field_container :blog_id, class: ['form-group'] do %>
-        <%= f.label :blog_id, raw(t('spree.essential_content.blog.name') + content_tag(:span, ' *', class: 'required')) %>
+        <%= f.label :blog_id, raw(I18n.t('spree.essential_content.blog.name') + content_tag(:span, ' *', class: 'required')) %>
         <%= f.select :blog_id, Spree::Blog.to_options, {}, { class: 'form-control dropdown' } %>
         <%= f.error_message_on :blog_id %>
       <% end %>
@@ -10,7 +10,7 @@
 
     <div data-hook="admin_post_form_title">
       <%= f.field_container :title, class: ['form-group'] do %>
-        <%= f.label :title, raw(t('spree_essential_content.post.title') + content_tag(:span, ' *', class: 'required')) %>
+        <%= f.label :title, raw(I18n.t('spree.essential_content.post.title') + content_tag(:span, ' *', class: 'required')) %>
         <%= f.text_field :title, class: 'form-control' %>
         <%= f.error_message_on :title %>
       <% end %>
@@ -18,17 +18,17 @@
 
     <div data-hook="admin_post_form_author">
       <%= f.field_container :author, class: ['form-group'] do %>
-        <%= f.label :author, t('spree_essential_content.post.author') %>
+        <%= f.label :author, I18n.t('spree.essential_content.post.author') %>
         <%= f.text_field :author, class: 'form-control' %>
         <%= f.error_message_on :author %>
       <% end %>
     </div>
   </div>
 
-  <div class="col-md-6" data-hook="admin_post_form_right">
+  <div class="col-6" data-hook="admin_post_form_right">
     <div data-hook="admin_post_form_posted_at">
       <%= f.field_container :posted_at, class: ['form-group'] do %>
-        <%= f.label :posted_at, t('spree.posted_at') %>
+        <%= f.label :posted_at, I18n.t('spree.posted_at') %>
         <%= f.date_field :posted_at, class: 'form-control datepicker' %>
         <%= f.error_message_on :posted_at %>
       <% end %>
@@ -36,7 +36,7 @@
 
     <div data-hook="admin_post_form_tag_list">
       <%= f.field_container :tag_list, class: ['form-group'] do %>
-        <%= f.label :tag_list, t('spree_essential_content.post.tags') %>
+        <%= f.label :tag_list, I18n.t('spree_essential_content.post.tags') %>
         <%= f.text_field :tag_list, class: 'form-control title' %>
         <%= f.error_message_on :tag_list %>
       <% end %>
@@ -44,17 +44,17 @@
 
     <div data-hook="admin_post_form_live">
       <%= f.field_container :live, class: ['form-group'] do %>
-        <%= f.check_box :live  %> <%= f.label :live, t('spree_essential_content.post.live') %>
+        <%= f.check_box :live  %> <%= f.label :live, I18n.t('spree.essential_content.post.live') %>
       <% end %>
     </div>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-12">
     <div data-hook="admin_post_form_teaser">
       <%= f.field_container :teaser, class: ['form-group'] do %>
-        <%= f.label :teaser, t('spree_essential_content.post.teaser') %><br />
+        <%= f.label :teaser, I18n.t('spree.essential_content.post.teaser') %><br />
         <%= f.text_field :teaser, class: 'form-control title' %><br />
         <%= f.error_message_on :teaser %>
       <% end %>
@@ -62,7 +62,7 @@
 
     <div data-hook="admin_post_form_body">
       <%= f.field_container :body, class: ['form-group'] do %>
-        <%= f.label :body, t('essential_content.post.body') %>
+        <%= f.label :body, I18n.t('essential_content.post.body') %>
         <br />
         <%= f.text_area :body  %>
         <%= f.error_message_on :body %>

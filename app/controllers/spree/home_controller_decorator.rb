@@ -21,6 +21,6 @@ Spree::HomeController.class_eval do
   end
 
   def accurate_title
-    @page.meta_title unless @page.nil?
+    @page&.meta_title
   end
 end

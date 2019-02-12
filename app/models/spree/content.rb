@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class Spree::Content < ActiveRecord::Base
+  include Image::ActiveStorage
+  include Rails.application.routes.url_helpers
+
+  translates :title, :body, :link, :link_text, :context, fallbacks_for_empty_translations: true
+  include OpenGlobalize::Translatable
+
   attr_accessor :delete_attachment
 
   acts_as_list scope: :page
@@ -9,13 +15,17 @@ class Spree::Content < ActiveRecord::Base
   validates_associated :page
   validates_presence_of :title, :page
 
-  has_attached_file :attachment,
-                    styles:        Proc { |clip| clip.instance.attachment_sizes },
-                    default_style: :preview,
-                    url:           '/spree/contents/:id/:style/:basename.:extension',
-                    path:          ':rails_root/public/spree/contents/:id/:style/:basename.:extension'
+  def styles
+    self.class.styles.map do |_, size|
+      width, height = size[/(\d+)x(\d+)/].split('x')
 
-  validates_attachment_content_type :attachment, content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
+      {
+        url: polymorphic_path(attachment.contents(resize: size), only_path: true),
+        width: width,
+        height: height
+      }
+    end
+  end
 
   cattr_reader :per_page
   @@per_page = 10
@@ -47,20 +57,17 @@ class Spree::Content < ActiveRecord::Base
     body&.html_safe
   end
 
-  def default_attachment_sizes
+  def default_styles
     { large: '1200x630>', medium: '600x315>', small: '200x200>', mini: '48x48>' }
   end
 
-  def attachment_sizes
-    sizes = case context
-            when 'slideshow'
-              default_attachment_sizes.merge(slide: '955x476#')
-            else
-              default_attachment_sizes
-            end
-    sizes
+  def self.context
+    when 'slideshow'
+      default_styles.merge(slide: '955x476#')
+    else
+      default_styles
   end
-
+        
   def context=(value)
     write_attribute :context, value.to_s.parameterize
   end

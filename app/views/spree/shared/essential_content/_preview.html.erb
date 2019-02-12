@@ -1,7 +1,7 @@
 <div data-hook="post-preview">
   <div data-hook="post-title">
     <h2><%= link_to h(post.title), post_seo_path(post.blog.permalink, post) %></h2>
-    <span><%= t('spree_essential_content.posted_on') %> <strong><%= l post.posted_at, format: :date_full %></strong> <%= t('spree_essential_content.by') %> <strong><%= post.author %></strong></span>
+    <span><%= I18n.t('spree.essential_content.posted_on') %> <strong><%= l post.posted_at, format: :date_full %></strong> <%= I18n.t('spree.essential_content.by') %> <strong><%= post.author %></strong></span>
   </div>
 
   <p><%= post.teaser %></p>

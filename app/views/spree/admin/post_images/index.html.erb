@@ -1,5 +1,5 @@
 <% content_for :page_actions do %>
-  <%= button_to t('spree.new_image'), new_admin_post_image_url(@post), { class: 'btn-success', icon: 'plus', id: 'new_image_link'} %>
+  <%= button_to I18n.t('spree.new_image'), new_admin_post_image_url(@post), { class: 'btn-success', icon: 'plus', id: 'new_image_link'} %>
 <% end %>
 
 <%= render partial: 'spree/admin/shared/post_tabs', locals: {current: "Images"} %>
@@ -14,8 +14,8 @@
     </colgroup>
     <thead>
       <tr>
-        <th colspan="2"><%= t('spree.thumbnail') %></th>
-        <th><%= t('spree.alt_text') %></th>
+        <th colspan="2"><%= I18n.t('spree.thumbnail') %></th>
+        <th><%= I18n.t('spree.alt_text') %></th>
         <th data-hook="admin_post_images_index_header_actions" class="actions"></th>
       </tr>
     </thead>
@@ -25,7 +25,7 @@
           <td class="move-handle text-center">
             <span class="icon icon-move handle"></span>
           </td>
-          <td><%= link_to(image_tag(image.attachment.url(:small)), image.attachment.url(:large)) %></td>
+          <td><%= link_to image_tag(main_app.url_for(image.url(:small))), main_app.url_for(image.url(:large)) %></td>
           <td><%= image.alt %></td>
           <td class="actions actions-2 text-right" data-hook="admin_post_images_index_row_actions">
             <%= link_to_edit image, no_text: true, class: 'edit', url: edit_admin_post_image_path(@post, image) %> &nbsp;
@@ -37,7 +37,7 @@
   </table>
 <% else %>
   <div class="alert alert-info no-objects-found">
-    <%= t('spree.no_resource_found', resource: plural_resource_name(Spree::PostImage)) %>,
-    <%= link_to t('spree.add_one'), new_object_url %>!
+    <%= I18n.t('spree.no_resource_found', resource: plural_resource_name(Spree::PostImage)) %>,
+    <%= link_to I18n.t('spree.add_one'), new_object_url %>!
   </div>
 <% end %>

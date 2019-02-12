@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-xml.instruct! :xml, version: "1.0"
-xml.rss(version: '2.0') do
+xml.instruct! :xml, version: '1.0'
+xml.rss version: '2.0' do
   xml.channel do
-    xml.title "#{@blog.name} - #{spree.current_store.name}"
-    xml.description "#{@blog.name} - #{spree.current_store_url}"
+    xml.title "#{@blog.name} - #{current_store.name}"
+    xml.description "#{@blog.name} - #{current_store_url}"
     xml.link blog_posts_url(@blog)
 
     for post in @posts

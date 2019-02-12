@@ -10,12 +10,12 @@
 
 <% if !@posts.blank? and @config[:show_posts_on_homepage] %>
   <div data-hook="latest-posts">
-    <h1><%= t('spree_essential_content.recent_posts') %></h1>
+    <h1><%= I18n.t('spree.essential_content.recent_posts') %></h1>
     <%= render partial: 'spree/shared/essential_content/preview', collection: @posts, as: :post %>
   </div>
 <% end %>
 
 <div data-hook="homepage_products">
-  <h1><%= t('spree_essential_content.latest_products') %></h1>
+  <h1><%= I18n.t('spree.essential_content.latest_products') %></h1>
   <%= render partial: 'spree/shared/products', locals: { products: @products } if @products %>
 </div>

@@ -2,12 +2,13 @@
 
 module Spree
   class PagesController < StoreController
+    rescue_from ActiveRecord::RecordNotFound, with: :render_404
 
     helper 'spree/blogs/posts'
     helper 'spree/products'
 
     def show
-      @page = current_page
+      @page = Spree::Page.joins(:translations).by_store(current_store).visible.find_by_path(request.path)
       raise ActionController::RoutingError, "No route matches [GET] #{request.path}" if @page.nil?
       if @page.root?
         @posts = Spree::Post.live.limit(5)
@@ -18,7 +19,7 @@ module Spree
     private
 
     def accurate_title
-      @page.meta_title
+      @page ? (@page.meta_title.present? ? @page.meta_title : @page.title) : nil
     end
   end
 end

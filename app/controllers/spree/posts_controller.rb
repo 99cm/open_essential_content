@@ -2,6 +2,7 @@
 
 module Spree
   class PostsController < StoreController
+    rescue_from ActiveRecord::RecordNotFound, with: :render_404
 
     helper 'spree/blogs/posts'
     helper 'spree/products'

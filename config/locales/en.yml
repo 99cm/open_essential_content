@@ -2,26 +2,71 @@ en:
   spree:
     admin:
       subnav:
-        pages: Content Pages
-        posts: Blog Posts
+        pages: "Content Pages"
+        posts: "Blog Posts"
         uploads: Uploads
         content: Content
     essential_content:
+      admin:
+        blog_edit: "Editing Blog"
+        blog_listing: "Listing Blogs"
+        blog_manage: "Manage Blog"
+        blog_new: "New Blog"
+        blog_settings: "Blog Settings"
+        content_edit: Edit Content
+        content_new: New Content
+        content_settings: Content Settings
+        contents: Contents
+        page_contents: Page Contents
+        page_details: Page Details
+        page_edit: Edit Page
+        page_editing: Editing Page
+        page_image_editing: Editing Image
+        page_images: Page Images
+        page_information: Page Information
+        page_listing: Content Pages
+        page_new: New Page
+        post_categories: Post Categories
+        post_category_edit: Edit Post Category
+        post_category_manage: Manage Post Categories
+        post_category_new: New Post Category
+        post_category_none_found: No Post Categories Were Found
+        post_details: Post Details
+        post_information: Post Information
+        post_listing: Listing Posts
+        post_new: New Post
+        post_product:
+          new: New Related Product
+          not_found: No Related Products Found
+          product: Product Related To Post
+        products_related: Related Products
+        upload_edit: Edit Upload
+        upload_listing: Listing Uploads
+        upload_new: New Upload
+      bad_category: The category is invalid
       blog:
         name: Blog Name
         permalink: permalink
+        translations: Translations
+      by: By
+      categories: Categories
+      comments: Comments
       content:
+        attachment: Attachment
+        body: Body
+        context: Context
+        delete_attachment: Delete current attachment
+        hide_title: Hide Title
+        link: Link URL
+        link_text: Link Text
         model_name: Content
         page_title: Page Title
         page: Page
         title: Title
-        body: Body
-        attachment: Attachment
-        link: Link URL
-        link_text: Link Text
-        context: Context
-        hide_title: Hide Title
-        delete_attachment: Delete current attachment
+        translations: Translations
+      file_name: File Name
+      latest_products: Latest Products
+      no_posts: No Blog Posts Found
       page:
         accessibility: Page Accessibility
         accessible: Accessible
@@ -35,8 +80,12 @@ en:
         nav_title: Navigation Title
         path: Path
         preview: Preview
+        show_in_footer: "Show in footer"
+        show_in_header: "Show in header"
         title: Title
+        translations: Translations
         visible: Visible
+      page_content_order: Order of Page Contents
       post:
         author: Author
         body: Post Content
@@ -45,83 +94,37 @@ en:
         posted_at: Published On
         posted_in: Blog
         published: Is Published
+        related_to_product: Blog Posts Related To Product
         tags: Tags
         teaser: Teaser Line
         title: Post Title
-        related_to_product: Blog Posts Related To Product
+        translations: Translations
       post_category:
         category: Post Category
         name: Category Name
         permalink: Category Permalink
-      upload:
-        upload: Upload
-        preview: Preview
-        link: Link To Content
-        file_name: Upload Filename
-        size: Upload Size
-      file_name: File Name
-      size: Size
-      rss: Subscribe via RSS
-      recent_posts: Recent Posts
-      categories: Categories
-      tags: Tags
-      comments: Comments
       posted_on: Posted On
-      by: By
-      tagged: Tagged
-      no_posts: No Blog Posts Found
-      bad_category: The category is invalid
-      setting_disqus_shortname: Disqus Shortname
+      recent_posts: Recent Posts
+      rss: Subscribe via RSS
       setting_sharethis_publisher_id: ShareThis Publisher
+      setting_show_posts_on_homepage: Show Posts On Home Page
       setting_show_products_on_homepage: Show Products On Home Page
       setting_show_taxons_on_homepage: Show Taxons On Home Page
-      setting_show_posts_on_homepage: Show Posts On Home Page
-      page_content_order: Order of Page Contents
-      latest_products: Latest Products
-      admin:
-        post_product:
-          new: New Related Product
-          not_found: No Related Products Found
-          product: Product Related To Post
-        blog_edit: Editing Blog
-        blog_manage: Manage Blog
-        blog_listing: Listing Blogs
-        blog_new: New Blog
-        blog_settings: Blog Settings
-        content_edit: Edit Content
-        content_new: New Content
-        contents: Contents
-        content_settings: Content Settings
-        page_contents: Page Contents
-        page_details: Page Details
-        page_edit: Edit Page
-        page_editing: Editing Page
-        page_information: Page Information
-        page_image_editing: Editing Image
-        page_images: Page Images
-        page_listing: Content Pages
-        page_new: New Page
-        post_categories: Post Categories
-        post_details: Post Details
-        post_information: Post Information
-        post_listing: Listing Posts
-        post_new: New Post
-        post_category_edit: Edit Post Category
-        post_category_new: New Post Category
-        post_category_none_found: No Post Categories Were Found
-        post_category_manage: Manage Post Categories
-        products_related: Related Products
-        upload_edit: Edit Upload
-        upload_listing: Listing Uploads
-        upload_new: New Upload
-
+      size: Size
+      tags: Tags
+      tagged: Tagged
+      upload:
+        file_name: Upload Filename
+        link: Link To Content
+        preview: Preview
+        size: Upload Size
+        upload: Upload
+  date:
+    formats:
+      month_year: "%B %Y"
   time:
     formats:
       date_time: "%x %X"
       date_full: "%A %B %d, %Y"
       detailed: "%A %B %d, %Y at %I:%M%p"
       date_only: "%x"
-  date:
-    formats:
-      month_year: "%B %Y"
-

@@ -9,13 +9,13 @@
 <%= form_for([:admin, @post.id, @post_image], url: admin_post_image_url(@post, @post_image), html: { multipart: true }) do |form| %>
 
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-2">
       <div class="form-group"">
-        <%= label_tag ("thumbnail") %><br />
-        <%= link_to(image_tag(@post_image.attachment.url(:small)), @post_image.attachment.url(:large)) %>
+        <%= f.label I18n.t('spree.thumbnail') %><br />
+        <%= link_to image_tag(main_app.url_for(@post_image.url(:small))), main_app.url_for(@post_image.url(:large)) %>
       </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-10">
       <%= render 'form', locals: { f: f } %>
     </div>
   </div>

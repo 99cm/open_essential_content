@@ -2,7 +2,7 @@
 
 <%= form_for([:admin, @post, @post_category], url: admin_post_category_path(@post, @post_category.id)) do |form| %>
   <fieldset>
-    <legend><%= t('spree_essential_content.admin.post_category_edit') %></legend>
+    <legend><%= I18n.t('spree.essential_content.admin.post_category_edit') %></legend>
 
     <% if @post_category.try(:errors).present? %>
       <%= render 'spree/shared/error_messages', target: @post_category %>
@@ -11,9 +11,9 @@
     <%= render 'form', locals: { f: f } %>
     <div class="filter-actions actions">
       <%= hidden_field_tag :post_id, @post.path, class: 'hidden' %>
-      <%= button t('spree.update'), 'refresh' %>
-      <span class="or"><%= t('spree.or') %></span>
-      <%= button_to t('spree.cancel'), admin_post_categories_url(@post), icon: 'remove' %>
+      <%= button I18n.t('spree.update'), 'refresh' %>
+      <span class="or"><%= I18n.t('spree.or') %></span>
+      <%= button_to I18n.t('spree.cancel'), admin_post_categories_url(@post), icon: 'remove' %>
     </div>
   </fieldset>
 <% end %>

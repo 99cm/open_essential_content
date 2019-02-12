@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class Spree::Page < ActiveRecord::Base
-  translates :title, :nav_title, :path, :meta_title, :meta_description, :meta_keywords, fallbacks_for_empty_translations: true
-  include SpreeGlobalize::Translatable
-
   extend FriendlyId
   friendly_id :path
 
@@ -13,16 +10,26 @@ class Spree::Page < ActiveRecord::Base
 
   alias_attribute :name, :title
 
+  belongs_to :store
+  has_many :stores, join_table: 'spree_pages_stores'
+
   validates_presence_of :title
   validates :path, presence: true, uniqueness: { case_sensitive: false }
 
   scope :active, -> { where(accessible: true) }
   scope :visible, -> { active.where(visible: true) }
+  scope :header_links, -> { where(show_in_header: true).visible }
+  scope :footer_links, -> { where(show_in_footer: true).visible }
+
+  scope :by_store, lambda { |store| joins(:stores).where("spree_pages_stores.store_id = ?", store) }
 
   has_many :contents, -> { order(:position) }, dependent: :destroy
   has_many :images, -> { order(:position) }, as: :viewable, class_name: 'Spree::PageImage', dependent: :destroy
   before_validation :set_defaults
   after_create :create_default_content
+
+  translates :title, :nav_title, :path, :meta_title, :meta_description, :meta_keywords, fallbacks_for_empty_translations: true
+  include OpenGlobalize::Translatable
 
   self.whitelisted_ransackable_attributes = %w[title path]
 

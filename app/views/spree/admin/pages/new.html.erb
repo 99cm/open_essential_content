@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= link_to t('spree_admin.subnav.pages'), admin_pages_path %> / <%= t('spree_essential_content.admin.page_new') %>
+  <%= link_to I18n.t('spree.admin.subnav.pages'), admin_pages_path %> / <%= I18n.t('spree.essential_content.admin.page_new') %>
 <% end %>
 
 <%= render 'spree/admin/shared/error_messages', target: @page %>

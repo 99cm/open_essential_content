@@ -6,7 +6,7 @@
 
 <%= form_for([:admin, @page.id, @page_image], url: admin_page_image_url(@page, @page_image), html: { multipart: true }) do |f| %>
   <fieldset>
-    <legend><%= (t('spree_essential_content.admin.page_image_editing') + " - #{@page_image.attachment_file_name}").html_safe %></legend>
+    <legend><%= (I18n.t('spree.essential_content.admin.page_image_editing') + " - #{@page_image.attachment_file_name}").html_safe %></legend>
 
     <div class="field">
       <%= label_tag (:preview) %>
@@ -17,9 +17,9 @@
     <%= render 'form', locals: { f: f } %>
 
     <div class="filter-actions actions">
-      <%= button t('spree.update'), 'refresh' %>
-      <span class="or"><%= t('spree.or') %></span>
-      <%= button_to t('spree.cancel'), admin_page_images_url(@page), icon: 'remove', id: "cancel_link" %>
+      <%= button I18n.t('spree.update'), 'refresh' %>
+      <span class="or"><%= I18n.t('spree.or') %></span>
+      <%= button_to I18n.t('spree.cancel'), admin_page_images_url(@page), icon: 'remove', id: "cancel_link" %>
     </div>
   </fieldset>
 <% end %>

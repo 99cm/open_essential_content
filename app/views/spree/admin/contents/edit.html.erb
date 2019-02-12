@@ -2,7 +2,7 @@
 
 <%= form_for([:admin, @page, @content], html: { multipart: true }) do |f| %>
   <fieldset>
-    <legend><%= (t('spree_essential_content.admin.content_edit') + " - #{@content.title}").html_safe %></legend>
+    <legend><%= (I18n.t('spree.essential_content.admin.content_edit') + " - #{@content.title}").html_safe %></legend>
 
     <% if @content.try(:errors).present? %>
       <%= render 'spree/shared/error_messages', target: @content %>
@@ -11,9 +11,9 @@
     <%= render 'form', locals: { f: f } %>
 
     <div class="filter-actions actions">
-      <%= button t('spree.update'), 'refresh' %>
-      <span class="or"><%= t('spree.or') %></span>
-      <%= button_to t('spree.cancel'), collection_url, icon: 'remove', id: 'cancel_link' %>
+      <%= button I18n.t('spree.update'), 'refresh' %>
+      <span class="or"><%= I18n.t('spree.or') %></span>
+      <%= button_to I18n.t('spree.cancel'), collection_url, icon: 'remove', id: 'cancel_link' %>
     </div>
   </fieldset>
 <% end %>

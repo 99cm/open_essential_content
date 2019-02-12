@@ -1,5 +1,5 @@
 <% if @category.nil? %>
-  <h1><%= t('spree_essential_content.bad_category') %></h1>
+  <h1><%= I18n.t('spree.essential_content.bad_category') %></h1>
 <% else %>
   <div data-hook="post-categories">
     <%= render partial: 'spree/shared/essential_content/preview', collection: @posts, as: :post %>

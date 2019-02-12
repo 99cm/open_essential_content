@@ -1,35 +1,35 @@
 <% content_for :page_title do %>
-  <%= link_to t('spree_admin.subnav.posts'), admin_posts_path %> / <%= (t('spree_essential_content.post.post') + " '#{@post.title}'").html_safe %>
+  <%= link_to I18n.t('spree.admin.subnav.posts'), admin_posts_path %> / <%= (I18n.t('spree.essential_content.post.post') + " '#{@post.title}'").html_safe %>
 <% end %>
 
 <% content_for :sidebar_title do %>
-  <%= t('spree_essential_content.admin.post_information') %>
+  <%= I18n.t('spree.essential_content.admin.post_information') %>
 <% end %>
 
 <% content_for :sidebar do %>
   <header id="post_tab_summary" data-hook>
     <dl class="additional-info">
-      <dt id="post_date" data-hook><%= t('spree_essential_content.post.posted_at') %>:</dt>
+      <dt id="post_date" data-hook><%= I18n.t('spree.essential_content.post.posted_at') %>:</dt>
       <dd><%= l(@post.posted_at, format: :long) %></dd>
-      <dt data-hook><%= t('spree_essential_content.post.posted_in') %>:</dt>
+      <dt data-hook><%= I18n.t('spree.essential_content.post.posted_in') %>:</dt>
       <dd id='posted_in'><%= link_to @post.blog.name, edit_admin_blog_path(@post.blog) %></dd>
-      <dt data-hook><%= t('spree_essential_content.post.published') %>:</dt>
-      <dd id='posted_in'><%= (@post.live && @post.posted_at <= Time.now) ? t('spree.say_yes') : t('spree.say_no') %></dd>
+      <dt data-hook><%= I18n.t('spree.essential_content.post.published') %>:</dt>
+      <dd id='posted_in'><%= (@post.live && @post.posted_at <= Time.now) ? I18n.t('spree.say_yes') : I18n.t('spree.say_no') %></dd>
     </dl>
   </header>
 
   <ul class="nav nav-pills nav-stacked post-menu" data-hook="admin_posts_tabs">
     <%= content_tag :li, class: ('active' if current == "Post Details") do %>
-      <%= link_to_with_icon 'edit', t('spree_essential_content.admin.post_details'), edit_admin_post_url(@post) %>
+      <%= link_to_with_icon 'edit', I18n.t('spree.essential_content.admin.post_details'), edit_admin_post_url(@post) %>
     <% end %>
     <%= content_tag :li, class: ('active' if current == "Images") do %>
-      <%= link_to_with_icon 'picture', t('spree.images'), admin_post_images_url(@post), class: "post-images" %>
+      <%= link_to_with_icon 'picture', I18n.t('spree.images'), admin_post_images_url(@post), class: "post-images" %>
     <% end %>
     <%= content_tag :li, class: ('active' if current == "Related Products") do %>
-      <%= link_to_with_icon 'resize-small', t('spree_essential_content.admin.products_related'), admin_post_products_url(@post) %>
+      <%= link_to_with_icon 'resize-small', I18n.t('spree.essential_content.admin.products_related'), admin_post_products_url(@post) %>
     <% end %>
     <%= content_tag :li, class: ('active' if current == "Categories") do %>
-      <%= link_to_with_icon 'tags', t('spree_essential_content.admin.post_categories'), admin_post_categories_url(@post) %>
+      <%= link_to_with_icon 'tags', I18n.t('spree.essential_content.admin.post_categories'), admin_post_categories_url(@post) %>
     <% end %>
   </ul>
 <% end %>

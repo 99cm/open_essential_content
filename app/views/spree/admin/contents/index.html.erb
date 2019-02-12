@@ -15,8 +15,8 @@
   </colgroup>
   <thead>
     <tr>
-      <th colspan="2"><%= t('spree_essential_content.content.title') %></th>
-      <th><%= t('spree_essential_content.content.context') %></th>
+      <th colspan="2"><%= I18n.t('spree.essential_content.content.title') %></th>
+      <th><%= I18n.t('spree_essential_content.content.context') %></th>
       <th data-hook="admin_page_contents_index_header_actions" class="actions"></th>
     </tr>
   </thead>
@@ -30,6 +30,8 @@
       <td><%= content.context %>
       <td class="actions" data-hook="admin_page_contents_index_row_actions">
         <%= link_to_edit content, no_text: true, class: 'edit' %>
+        &nbsp;
+        <%= link_to_with_icon 'translate', nil, spree.admin_translations_path('contents', content.id), title: I18n.t('spree.essential.page.content.translations'), class: 'btn btn-sm btn-primary' %>
         &nbsp;
         <%= link_to_delete content, no_text: true %>
       </td>

@@ -1,10 +1,10 @@
 <% content_for :page_title do %>
-  <%= t('spree_essential_content.admin.post_listing') %>
+  <%= I18n.t('spree.essential_content.admin.post_listing') %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <%= button_to t('spree_essential_content.admin.post_new'), new_admin_post_url, { class: "btn-success", icon: 'plus', id: 'admin_new_post'} %>
-  <%= button_to t('spree_essential_content.admin.blog_manage'), admin_blogs_url, { class: "btn-success", icon: 'file', id: 'admin_manage_blogs'} %>
+  <%= button_to I18n.t('spree.essential_content.admin.post_new'), new_admin_post_url, { class: "btn-success", icon: 'plus', id: 'admin_new_post'} %>
+  <%= button_to I18n.t('spree.essential_content.admin.blog_manage'), admin_blogs_url, { class: "btn-success", icon: 'file', id: 'admin_manage_blogs'} %>
 <% end %>
 
 <% content_for :table_filter do %>
@@ -12,22 +12,22 @@
     <%= search_form_for [:admin, @search] do |f| %>
       <%- locals = {f: f} %>
       <div data-hook="admin_posts_index_search" class="row">
-        <div class="col-md-6">
+        <div class="col-6">
           <div class="form-group">
-            <%= f.label :blog_id_eq, t('spree_essential_content.blog.name') %>
+            <%= f.label :blog_id_eq, I18n.t('spree.essential_content.blog.name') %>
             <%= f.select :blog_id_eq, Spree::Blog.to_options, {}, {selected: (params[:q][:blog_id_eq] if params[:q]), include_blank: true, class: 'form-control dropdown' }  %>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-6">
           <div class="form-group">
-            <%= f.label :title_cont, t('spree_essential_content.post.title') %>
+            <%= f.label :title_cont, I18n.t('spree.essential_content.post.title') %>
             <%= f.text_field :title_cont, size: 25, class: 'form-control js-quick-search-target' %>
           </div>
         </div>
       </div>
 
       <div class="form-actions" data-hook="admin_blog_posts_index_search_buttons">
-        <%= button t('spree.search'), 'search' %>
+        <%= button I18n.t('spree.search'), 'search' %>
       </div>
     <% end %>
   </div>
@@ -39,10 +39,10 @@
   <table class="table" id="listing_posts">
     <thead>
       <tr data-hook="admin_blog_posts_index_headers">
-          <th><%= t('spree_essential_content.post.title') %></th>
-          <th><%= t('spree_essential_content.blog.name') %></th>
-          <th><%= t('spree_essential_content.post.posted_at') %></th>
-          <th><%= t('spree_essential_content.post.live') %></th>
+          <th><%= I18n.t('spree.essential_content.post.title') %></th>
+          <th><%= I18n.t('spree.essential_content.blog.name') %></th>
+          <th><%= I18n.t('spree.essential_content.post.posted_at') %></th>
+          <th><%= I18n.t('spree.essential_content.post.live') %></th>
           <th data-hook="admin_posts_index_header_actions" class="actions"></th>
       </tr>
     </thead>
@@ -55,7 +55,7 @@
         <td class="text-center"><%= raw(post.live ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>') %></td>
         <td class="actions actions-2 text-right" data-hook="admin_posts_index_row_actions">
         	<%= link_to_edit post, no_text: true, class: 'edit' %> &nbsp;
-          <%= link_to_with_icon 'translate', nil, spree.admin_translations_path('posts', post.path), title: t('spree.translations'), class: 'btn btn-sm btn-primary' %> &nbsp;
+          <%= link_to_with_icon 'translate', nil, spree.admin_translations_path('posts', post.path), title: I18n.t('spree.essential_content.post.translations'), class: 'btn btn-sm btn-primary' %> &nbsp;
         	<%= link_to_delete post, no_text: true %>
         </td>
       </tr>
@@ -64,7 +64,7 @@
   </table>
 <% else %>
   <div class="alert alert-info no-objects-found">
-    <%= t('spree.no_resource_found', resource: plural_resource_name(Spree::Post)) %>,
-    <%= link_to t('spree.add_one'), new_object_url %>!
+    <%= I18n.t('spree.no_resource_found', resource: plural_resource_name(Spree::Post)) %>,
+    <%= link_to I18n.t('spree.add_one'), new_object_url %>!
   </div>
 <% end %>

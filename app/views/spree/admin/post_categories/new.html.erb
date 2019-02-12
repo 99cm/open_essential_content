@@ -2,7 +2,7 @@
 
 <%= form_for(@post_category, url: admin_post_categories_path(@post)) do |form| %>
   <fieldset>
-    <legend><%= t('spree_essential_content.admin.post_category_new') %></legend>
+    <legend><%= I18n.t('spree.essential_content.admin.post_category_new') %></legend>
 
     <% if @post_category.try(:errors).present? %>
       <%= render 'spree/shared/error_messages', target: @post_category %>
@@ -11,9 +11,9 @@
     <%= render 'form', locals: { f: f } %>
 
     <div class="filter-actions actions">
-      <%= button t('spree.create'), 'ok' %>
-      <span class="or"><%= t('spree.or') %></span>
-      <%= link_to_with_icon 'remove', t('spree.cancel'), admin_post_categories_path(@post), id: 'cancel_link', class: 'button' %>
+      <%= button I18n.t('spree.create'), 'ok' %>
+      <span class="or"><%= I18n.t('spree.or') %></span>
+      <%= link_to_with_icon 'remove', I18n.t('spree.cancel'), admin_post_categories_path(@post), id: 'cancel_link', class: 'button' %>
     </div>
   </fieldset>
 <% end %>
