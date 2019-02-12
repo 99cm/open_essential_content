@@ -88,4 +88,4 @@ Copyright (c) 2019 [Leo Wang][2], and other [contributors][3], released under th
 [1]: https://github.com/FineLineAutomation/spree_essential_content
 [2]: https://github.com/99cm
 [3]: https://github.com/99cm/open_essential_content/graphs/contributors
-[4]: https://github.com/99cm/open_essential_content/blob/master/LICENSE.md
+[4]: https://github.com/99cm/open_essential_content/blob/master/LICENSE

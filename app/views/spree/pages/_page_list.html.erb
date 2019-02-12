@@ -1,0 +1,2 @@
+<% page_uri = Rails.application.routes.named_routes[:spree].path.spec.to_s == '/' ? page.path : Rails.application.routes.named_routes[:spree].path.spec.to_s + page.path %>
+<li class="<%= 'current' if (request.fullpath.gsub('//','/') == page_uri) %>"><%= link_to page.title, page_uri %></li>
