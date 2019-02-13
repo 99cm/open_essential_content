@@ -25,7 +25,7 @@
           <td class="move-handle text-center">
             <span class="icon icon-move handle"></span>
           </td>
-          <td><%= link_to image_tag(main_app.url_for(image.url(:small))), main_app.url_for(image.url(:large)) %></td>
+          <td><%= link_to image_tag(main_app.url_for(image.url(:small)), main_app.url_for(image.url(:large))) %></td>
           <td><%= image.alt %></td>
           <td class="actions actions-2 text-right" data-hook="admin_post_images_index_row_actions">
             <%= link_to_edit image, no_text: true, class: 'edit', url: edit_admin_post_image_path(@post, image) %> &nbsp;

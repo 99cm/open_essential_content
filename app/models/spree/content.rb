@@ -45,10 +45,6 @@ class Spree::Content < ActiveRecord::Base
     has_link? && has_link_text?
   end
 
-  def has_image?
-    has_value(:attachment_file_name) && attachment_file_name.match(/gif|jpg|png/i)
-  end
-
   def hide_title?
     hide_title == true
   end

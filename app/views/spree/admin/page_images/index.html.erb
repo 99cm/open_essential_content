@@ -26,7 +26,7 @@
         <td class="move-handle text-center">
           <span class="icon icon-move handle"></span>
         </td>
-        <td><%= link_to(image_tag(image.attachment.url(:mini)), image.attachment.url(:large)) %></td>
+        <td><%= link_to(image_tag(main_app.url_for(@page_image.url(:mini)), main_app.url_for(@page_image.url(:large))) %></td>
         <td><%= image.alt %></td>
         <td class="actions" data-hook="admin_page_image_index_row_actions">
           <%= link_to_with_icon 'edit', I18n.t('spree.edit'), edit_admin_page_image_path(@page, image), no_text: true, data: {action: 'edit'} %>

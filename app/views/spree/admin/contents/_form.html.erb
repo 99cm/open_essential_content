@@ -53,7 +53,7 @@
 <% end %>
 
 <% if @content.attachment.exists?(:mini) %>
-  <p><%= image_tag @content.attachment.url(:mini) %></p>
+  <p><%= image_tag main_app.url_for(@content.url(:mini)) %></p>
 <% end %>
 
 <%= form.field_container :link, class: ['form-group'] do %>

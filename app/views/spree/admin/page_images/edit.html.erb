@@ -11,7 +11,7 @@
     <div class="field">
       <%= label_tag (:preview) %>
       <div style="text-align:center;">
-        <%= link_to(image_tag(@page_image.attachment.url(:medium)), @page_image.attachment.url(:large)) %>
+        <%= link_to image_tag(main_app.url_for(@page_image.url(:medium)), main_app.url_for(@page_image.url(:large))) %>
       </div>
     </div>
     <%= render 'form', locals: { f: f } %>
