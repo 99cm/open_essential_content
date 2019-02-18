@@ -47,7 +47,6 @@ en:
       blog:
         name: Blog Name
         permalink: permalink
-        translations: Translations
       by: By
       categories: Categories
       comments: Comments
@@ -63,7 +62,6 @@ en:
         page_title: Page Title
         page: Page
         title: Title
-        translations: Translations
       file_name: File Name
       latest_products: Latest Products
       no_posts: No Blog Posts Found
@@ -83,7 +81,6 @@ en:
         show_in_footer: "Show in footer"
         show_in_header: "Show in header"
         title: Title
-        translations: Translations
         visible: Visible
       page_content_order: Order of Page Contents
       post:
@@ -98,7 +95,6 @@ en:
         tags: Tags
         teaser: Teaser Line
         title: Post Title
-        translations: Translations
       post_category:
         category: Post Category
         name: Category Name

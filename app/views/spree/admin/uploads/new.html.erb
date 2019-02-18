@@ -11,7 +11,7 @@
     <div class="form-buttons filter-actions actions" data-hook="buttons">
       <%= button I18n.t('spree.update'), 'refresh' %>
       <span class="or"><%= I18n.t('spree.or') %></span>
-      <%= link_to_with_icon 'remove', I18n.t('spree.cancel'), admin_uploads_url(), id: 'cancel_link', class: 'button' %>
+      <%= link_to_with_icon 'remove', spree.admin_uploads_url(), I18n.t('spree.cancel'), no_text: true %>
     </div>
   </fieldset>
 <% end %>

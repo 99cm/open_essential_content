@@ -1,5 +1,5 @@
 <% content_for :page_actions do %>
-  <%= link_to_with_icon('plus', I18n.t('spree.new_image'), new_admin_page_image_url(@page), id: 'new_image_link', class: 'btn btn-success') %>
+  <%= link_to_with_icon 'plus', spree.new_admin_page_image_url(@page), I18n.t('spree.new_image'), no_text: true %>
 <% end %>
 
 <%= render partial: 'spree/admin/shared/page_tabs', locals: {page: @page, current: "Images"} %>
@@ -29,7 +29,7 @@
         <td><%= link_to(image_tag(main_app.url_for(@page_image.url(:mini)), main_app.url_for(@page_image.url(:large))) %></td>
         <td><%= image.alt %></td>
         <td class="actions" data-hook="admin_page_image_index_row_actions">
-          <%= link_to_with_icon 'edit', I18n.t('spree.edit'), edit_admin_page_image_path(@page, image), no_text: true, data: {action: 'edit'} %>
+          <%= link_to_with_icon 'edit', spree.edit_admin_page_image_path(@page, image), I18n.t('spree.edit'), no_text: true, data: {action: 'edit'} %>
           &nbsp;
           <%= link_to_delete image, {no_text: true, url: admin_page_image_url(@page, image) }%>
         </td>
